@@ -1,0 +1,47 @@
+name: CI - Ubuntu Bionic
+
+on:
+  # direct pushes to protected branches are not supported
+  pull_request:
+  # run every day, at 6am UTC
+  schedule:
+    - cron: '0 6 * * *'
+  # allow manually starting this workflow
+  workflow_dispatch:
+
+jobs:
+  industrial_ci:
+    strategy:
+      matrix:
+        env:
+          - {ROS_DISTRO: melodic, ROS_REPO: testing}
+          - {ROS_DISTRO: melodic, ROS_REPO: main}
+    name: ROS Melodic (${{ matrix.env.ROS_REPO }})
+    # industrial_ci uses Docker, so we don't need a specific Ubuntu version
+    runs-on: ubuntu-latest
+    env:
+      CI_NAME: Ubuntu Bionic
+      OS_NAME: ubuntu
+      OS_CODE_NAME: bionic
+      CCACHE_DIR: "/home/runner/work/abb_robot_driver/abb_robot_driver/bionic/.ccache"
+      UPSTREAM_WORKSPACE: 'pkgs.repos -abb_robot_driver'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Prepare ccache timestamp
+        id: ccache_cache_timestamp
+        shell: cmake -P {0}
+        run: |
+          string(TIMESTAMP current_date "%Y-%m-%d-%H;%M;%S" UTC)
+          message("::set-output name=timestamp::${current_date}")
+
+      - name: ccache cache files
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.CI_NAME }}/.ccache
+          key: ${{ env.CI_NAME }}-ccache-${{ steps.ccache_cache_timestamp.outputs.timestamp }}
+          restore-keys: |
+            ${{ env.CI_NAME }}-ccache-
+
+      - uses: 'ros-industrial/industrial_ci@master'
+        env: ${{matrix.env}}

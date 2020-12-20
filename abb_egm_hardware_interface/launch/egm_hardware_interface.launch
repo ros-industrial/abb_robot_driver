@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="base_config_file" default="$(find abb_egm_hardware_interface)/config/base_configs_example.yaml"         doc="General configurations"/>
+  <arg name="egm_config_file"  default="$(find abb_egm_hardware_interface)/config/egm_single_mech_unit_example.yaml" doc="EGM related configurations"/>
+  <arg name="output"           default="log"                                                                         doc="Specifies where the stdout/stderr streams are directed (i.e. 'log' or 'screen')"/>
+
+  <node pkg="abb_egm_hardware_interface" type="egm_hardware_interface" name="egm_hardware_interface" output="$(arg output)">
+    <rosparam file="$(arg base_config_file)" command="load"/>
+    <rosparam file="$(arg egm_config_file)" command="load"/>
+  </node>
+
+  <node pkg="abb_egm_hardware_interface" type="egm_controller_stopper" name="egm_controller_stopper" output="$(arg output)">
+    <rosparam file="$(arg base_config_file)" command="load"/>
+  </node>
+</launch>

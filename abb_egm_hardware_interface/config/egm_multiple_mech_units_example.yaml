@@ -1,0 +1,16 @@
+# These settings must match:
+# - Port numbers specified in the ABB robot controller's system configurations for EGM communication.
+# - Names of the mechanical unit groups intended to be controlled by respective EGM communication channel.
+egm:
+  channel_1:
+    port_number: 6511
+    mech_unit_group: "rob1"
+  channel_2:
+    port_number: 6512
+    mech_unit_group: "rob2"
+  channel_3:
+    port_number: 6513
+    mech_unit_group: "rob3"
+  channel_4:
+    port_number: 6514
+    mech_unit_group: "rob4"

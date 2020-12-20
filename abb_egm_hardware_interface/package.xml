@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>abb_egm_hardware_interface</name>
+  <version>0.5.0</version>
+  <description>
+    Provides an implementation for a ros_control-based hardware interface, which facilitates communication
+    with ABB robot controllers that supports the Externally Guided Motion (EGM) interface.
+
+    A ROS node implementation is also provided for starting a ros_control controller manager, which drives a single
+    instance of the EGM hardware interface toward an ABB robot controller.
+  </description>
+  <maintainer email="jon.tjerngren@se.abb.com">Jon Tjerngren</maintainer>
+  <license>BSD-3-Clause</license>
+  <author>Jon Tjerngren</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>abb_egm_rws_managers</depend>
+  <depend>abb_robot_cpp_utilities</depend>
+  <depend>abb_robot_msgs</depend>
+  <depend>controller_manager</depend>
+  <depend>controller_manager_msgs</depend>
+  <depend>hardware_interface</depend>
+  <depend>joint_limits_interface</depend>
+  <depend>roscpp</depend>
+</package>

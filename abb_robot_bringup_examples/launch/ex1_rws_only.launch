@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="robot_ip" doc="The robot controller's IP address"/>
+
+  <!-- Enable DEBUG output for all ABB nodes -->
+  <arg name="debug" default="false"/>
+  <env if="$(arg debug)" name="ROSCONSOLE_CONFIG_FILE" value="$(find abb_robot_bringup_examples)/config/rosconsole.conf"/>
+
+  <!-- ============================================================================================================= -->
+  <!-- Robot Web Services (RWS) related components.                                                                  -->
+  <!-- ============================================================================================================= -->
+
+  <!-- RWS state publisher (i.e. general states about the robot controller) -->
+  <include file="$(find abb_rws_state_publisher)/launch/rws_state_publisher.launch">
+    <arg name="robot_ip" value="$(arg robot_ip)"/>
+  </include>
+
+  <!-- RWS service provider (i.a. starting/stopping the robot controller's RAPID execution) -->
+  <include file="$(find abb_rws_service_provider)/launch/rws_service_provider.launch">
+    <arg name="robot_ip" value="$(arg robot_ip)"/>
+  </include>
+</launch>

@@ -1,0 +1,14 @@
+# Indicator for if it is ok to wait indefinitely for ROS services to become available.
+#
+# Note: This is only used during initialization.
+no_service_timeout: false
+
+# Lists of ros_control controllers, which are:
+# - Always ok to start (for example, when EGM is inactive).
+# - Ok to keep running (for example, when EGM becomes inactive).
+#
+# Note: These lists are intended for passive controllers, which doesn't control motion.
+ros_control:
+  controllers:
+    always_ok_to_start: ["egm_state_controller", "joint_state_controller"]
+    ok_to_keep_running: ["egm_state_controller", "joint_state_controller"]

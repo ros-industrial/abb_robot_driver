@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="robot_ip" doc="The robot controller's IP address"/>
+
+  <!-- Using an nickname/identifier for the robot controller is good practice -->
+  <arg name="robot_nickname" value="yumi" doc="Nickname/identifier for the robot controller"/>
+
+  <!-- Enable DEBUG output for all ABB nodes -->
+  <arg name="debug" default="false"/>
+  <env if="$(arg debug)" name="ROSCONSOLE_CONFIG_FILE" value="$(find abb_robot_bringup_examples)/config/rosconsole.conf"/>
+
+  <!-- Launching the driver components in their own namespace is good practice -->
+  <group ns="$(arg robot_nickname)">
+    <!-- =========================================================================================================== -->
+    <!-- Robot Web Services (RWS) related components.                                                                -->
+    <!-- =========================================================================================================== -->
+
+    <!-- RWS state publisher (i.e. general states about the robot controller) -->
+    <include file="$(find abb_rws_state_publisher)/launch/rws_state_publisher.launch">
+      <arg name="robot_ip" value="$(arg robot_ip)"/>
+      <arg name="robot_nickname" value="$(arg robot_nickname)"/>
+    </include>
+
+    <!-- RWS service provider (i.a. starting/stopping the robot controller's RAPID execution) -->
+    <include file="$(find abb_rws_service_provider)/launch/rws_service_provider.launch">
+      <arg name="robot_ip" value="$(arg robot_ip)"/>
+      <arg name="robot_nickname" value="$(arg robot_nickname)"/>
+    </include>
+
+    <!-- =========================================================================================================== -->
+    <!-- Externally Guided Motion (EGM) related components.                                                          -->
+    <!--                                                                                                             -->
+    <!-- Notes:                                                                                                      -->
+    <!-- * This example assumes that a dual armed YuMi robot is used.                                                -->
+    <!-- * An EGM session must be in running mode before starting 'ros_control' controllers that command motions.    -->
+    <!-- =========================================================================================================== -->
+
+    <!-- EGM hardware interface (i.e. 'ros_control'-based interface for interacting with mechanical units) -->
+    <include file="$(find abb_egm_hardware_interface)/launch/egm_hardware_interface.launch">
+      <arg name="base_config_file" value="$(find abb_robot_bringup_examples)/config/ex3_hardware_base.yaml"/>
+      <arg name="egm_config_file" value="$(find abb_robot_bringup_examples)/config/ex3_hardware_egm.yaml"/>
+    </include>
+
+    <!-- Put 'ros_control' components in the "egm" namespace (to match the hardware interface) -->
+    <group ns="egm">
+      <!-- Load configurations for 'ros_control' controllers on the parameter server -->
+      <rosparam file="$(find abb_robot_bringup_examples)/config/ex3_controllers.yaml" command="load"/>
+
+      <!-- Two 'ros_control' controller spawners (stopped for the controller that command motions) -->
+      <node pkg="controller_manager" type="spawner" name="started" args="egm_state_controller joint_state_controller"/>
+      <node pkg="controller_manager" type="spawner" name="stopped" args="--stopped joint_group_velocity_controller"/>
+    </group>
+  </group>
+</launch>

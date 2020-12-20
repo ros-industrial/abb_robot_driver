@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>abb_rws_state_publisher</name>
+  <version>0.5.0</version>
+  <description>
+    Provides a ROS node implementation that periodically publishes ROS messages, containing an
+    ABB robot controller's current state collected via Robot Web Services (RWS) communication.
+  </description>
+  <maintainer email="jon.tjerngren@se.abb.com">Jon Tjerngren</maintainer>
+  <license>BSD-3-Clause</license>
+  <author>Jon Tjerngren</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>abb_egm_rws_managers</depend>
+  <depend>abb_rapid_sm_addin_msgs</depend>
+  <depend>abb_robot_cpp_utilities</depend>
+  <depend>abb_robot_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>sensor_msgs</depend>
+</package>

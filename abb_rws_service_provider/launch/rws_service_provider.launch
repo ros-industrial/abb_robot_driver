@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="robot_ip"                              doc="IP address to the robot controller's RWS server"/>
+  <arg name="robot_port"            default="80"    doc="Port number of the robot controller's RWS server"/>
+  <arg name="robot_nickname"        default=""      doc="Arbitrary user nickname/identifier for the robot controller"/>
+  <arg name="no_connection_timeout" default="false" doc="Specifies whether the node is allowed to wait indefinitely for the robot controller during initialization"/>
+  <arg name="output"                default="log"   doc="Specifies where the stdout/stderr streams are directed (i.e. 'log' or 'screen')"/>
+
+  <node pkg="abb_rws_service_provider" type="rws_service_provider" name="rws_service_provider" output="$(arg output)">
+    <param name="robot_ip" value="$(arg robot_ip)"/>
+    <param name="robot_port" value="$(arg robot_port)"/>
+    <param name="robot_nickname" value="$(arg robot_nickname)"/>
+    <param name="no_connection_timeout" value="$(arg no_connection_timeout)"/>
+  </node>
+</launch>

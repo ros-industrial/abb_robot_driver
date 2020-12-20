@@ -1,0 +1,5 @@
+# These settings must match:
+# - Port numbers specified in the ABB robot controller's system configurations for EGM communication.
+egm:
+  channel_1:
+    port_number: 6511

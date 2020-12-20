@@ -1,0 +1,10 @@
+<library path="lib/libabb_egm_state_controller">
+  <class name="abb_egm_state_controller/EGMStateController" type="abb::robot::EGMStateController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      The EGMStateController publishes the current state of Externally Guided Motion (EGM) communication channels
+      that has been set up between an ABB robot controller and external EGM servers.
+
+      The controller expects a hardware interface of the type EGMStateInterface.
+    </description>
+  </class>
+</library>

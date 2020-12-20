@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>abb_robot_bringup_examples</name>
+  <version>0.5.0</version>
+  <description>
+    Provides some basic examples of how the ABB robot controller driver's components can be launched in ROS.
+  </description>
+  <maintainer email="jon.tjerngren@se.abb.com">Jon Tjerngren</maintainer>
+  <license>BSD-3-Clause</license>
+  <author>Jon Tjerngren</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>abb_egm_hardware_interface</exec_depend>
+  <exec_depend>abb_egm_state_controller</exec_depend>
+  <exec_depend>abb_rws_service_provider</exec_depend>
+  <exec_depend>abb_rws_state_publisher</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>joint_state_controller</exec_depend>
+  <exec_depend>velocity_controllers</exec_depend>
+</package>

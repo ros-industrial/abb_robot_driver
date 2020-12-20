@@ -1,0 +1,3 @@
+egm_state_controller:
+  type         : abb_egm_state_controller/EGMStateController
+  publish_rate : 250

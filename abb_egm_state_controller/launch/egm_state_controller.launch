@@ -1,0 +1,4 @@
+<launch>
+  <rosparam command="load" file="$(find abb_egm_state_controller)/config/egm_state_controller.yaml"/>
+  <node pkg="controller_manager" type="spawner" name="egm_state_controller_spawner" args="egm_state_controller"/>
+</launch>

@@ -1,0 +1,60 @@
+# These settings must match:
+# - Port numbers specified in the ABB robot controller's system configurations for EGM communication.
+# - Names of the mechanical unit groups intended to be controlled by respective EGM communication channel.
+egm:
+  channel_1:
+    port_number: 6511
+    mech_unit_group: "rob_l"
+  channel_2:
+    port_number: 6512
+    mech_unit_group: "rob_r"
+
+# These settings must match:
+# - Joint names extracted from the ABB robot controller.
+# - The 'yumi_' prefix must match the nickname/identifier,
+#   which is set in the corresponding launch file.
+#
+# See http://wiki.ros.org/joint_limits_interface for more info about available joint limits:
+joint_limits:
+  yumi_robl_joint_1:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robl_joint_2:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robl_joint_3:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robl_joint_4:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robl_joint_5:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robl_joint_6:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robl_joint_7:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robr_joint_1:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robr_joint_2:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robr_joint_3:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robr_joint_4:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robr_joint_5:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robr_joint_6:
+    has_velocity_limits: true
+    max_velocity: 0.2
+  yumi_robr_joint_7:
+    has_velocity_limits: true
+    max_velocity: 0.2

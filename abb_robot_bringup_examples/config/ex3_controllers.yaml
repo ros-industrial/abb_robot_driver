@@ -1,0 +1,29 @@
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 250
+
+egm_state_controller:
+  type         : abb_egm_state_controller/EGMStateController
+  publish_rate : 250
+
+# These settings must match:
+# - Joint names extracted from the ABB robot controller.
+# - The 'yumi_' prefix must match the nickname/identifier,
+#   which is set in the corresponding launch file.
+joint_group_velocity_controller:
+  type: velocity_controllers/JointGroupVelocityController
+  joints:
+    - yumi_robl_joint_1
+    - yumi_robl_joint_2
+    - yumi_robl_joint_3
+    - yumi_robl_joint_4
+    - yumi_robl_joint_5
+    - yumi_robl_joint_6
+    - yumi_robl_joint_7
+    - yumi_robr_joint_1
+    - yumi_robr_joint_2
+    - yumi_robr_joint_3
+    - yumi_robr_joint_4
+    - yumi_robr_joint_5
+    - yumi_robr_joint_6
+    - yumi_robr_joint_7

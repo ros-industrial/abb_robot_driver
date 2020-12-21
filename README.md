@@ -1,5 +1,8 @@
 # abb_robot_driver
 
+![CI - Ubuntu Bionic](https://github.com/ros-industrial/abb_robot_driver/workflows/CI%20-%20Ubuntu%20Bionic/badge.svg)
+![CI - Ubuntu Focal](https://github.com/ros-industrial/abb_robot_driver/workflows/CI%20-%20Ubuntu%20Focal/badge.svg)
+
 [![Github Issues](https://img.shields.io/github/issues/ros-industrial/abb_robot_driver.svg)](http://github.com/ros-industrial/abb_robot_driver/issues)
 
 [![license - bsd 3 clause](https://img.shields.io/:license-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)

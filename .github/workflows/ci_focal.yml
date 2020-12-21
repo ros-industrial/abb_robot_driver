@@ -20,6 +20,7 @@ jobs:
     # industrial_ci uses Docker, so we don't need a specific Ubuntu version
     runs-on: ubuntu-latest
     env:
+      ADDITIONAL_DEBS: "python3-osrf-pycommon"
       BUILDER: catkin_tools
       CI_NAME: Ubuntu Focal
       OS_NAME: ubuntu

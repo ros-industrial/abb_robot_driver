@@ -2,10 +2,10 @@
 
 ![CI - Ubuntu Bionic](https://github.com/ros-industrial/abb_robot_driver/workflows/CI%20-%20Ubuntu%20Bionic/badge.svg)
 ![CI - Ubuntu Focal](https://github.com/ros-industrial/abb_robot_driver/workflows/CI%20-%20Ubuntu%20Focal/badge.svg)
-
 [![Github Issues](https://img.shields.io/github/issues/ros-industrial/abb_robot_driver.svg)](http://github.com/ros-industrial/abb_robot_driver/issues)
 
 [![license - bsd 3 clause](https://img.shields.io/:license-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 [![support level: vendor](https://img.shields.io/badge/support%20level-vendor-brightgreen.svg)](http://rosindustrial.org/news/2016/10/7/better-supporting-a-growing-ros-industrial-software-platform)
 
 **Please note that the included packages have not been productized, and that academia is the intended audience.**\

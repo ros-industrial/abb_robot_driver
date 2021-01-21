@@ -38,10 +38,10 @@ jobs:
       - name: ccache cache files
         uses: actions/cache@v2
         with:
-          path: ${{ env.CI_NAME }}/.ccache
-          key: ${{ env.CI_NAME }}-ccache-${{ steps.ccache_cache_timestamp.outputs.timestamp }}
+          path: ${{ env.OS_CODE_NAME }}/.ccache
+          key: ${{ env.OS_CODE_NAME }}-ccache-${{ steps.ccache_cache_timestamp.outputs.timestamp }}
           restore-keys: |
-            ${{ env.CI_NAME }}-ccache-
+            ${{ env.OS_CODE_NAME }}-ccache-
 
       - uses: 'ros-industrial/industrial_ci@master'
         env: ${{matrix.env}}

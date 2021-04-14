@@ -1,0 +1,17 @@
+repositories:
+  abb_libegm:
+   type: git
+   url: https://github.com/ros-industrial/abb_libegm.git
+   version: e0b8c3b0
+  abb_librws:
+   type: git
+   url: https://github.com/ros-industrial/abb_librws.git
+   version: 3a5914ef
+  abb_egm_rws_managers:
+   type: git
+   url: https://github.com/ros-industrial/abb_egm_rws_managers.git
+   version: 7d69d3dd
+  abb_robot_driver:
+   type: git
+   url: https://github.com/ros-industrial/abb_robot_driver.git
+   version: master

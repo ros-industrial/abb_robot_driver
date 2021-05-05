@@ -15,3 +15,7 @@ repositories:
    type: git
    url: https://github.com/ros-industrial/abb_robot_driver.git
    version: master
+  abb_robot_driver_interfaces:
+   type: git
+   url: https://github.com/ros-industrial/abb_robot_driver_interfaces.git
+   version: 0.5.3

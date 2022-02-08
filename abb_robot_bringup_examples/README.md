@@ -8,7 +8,7 @@
 
 ## Overview
 
-The ROS nodes included in [abb_robot_driver](https://github.com/ros-industrial/abb_robot_driver) can only interact with ABB robots that are supported by these interfaces:
+The ROS nodes included in [abb_robot_driver](https://github.com/ros-industrial/abb_robot_driver) can only interact with ABB robots that are supported by one (or more) of these interfaces:
 
 - *Robot Web Services* (`RWS`) `1.0`:
   - Available in `IRC5` controllers with `RobotWare 6` systems.

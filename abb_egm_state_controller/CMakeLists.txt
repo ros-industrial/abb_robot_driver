@@ -102,7 +102,12 @@ target_compile_features(${target_name} PRIVATE cxx_std_14)
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   target_compile_options(${target_name} PRIVATE -Wall -Wextra -Wpedantic)
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-  target_compile_options(${target_name} PRIVATE /W4 -DNOGDI)
+  target_compile_options(${target_name} PRIVATE /W4)
+endif()
+
+## Restrict Windows header namespace usage
+if (WIN32)
+  target_compile_definitions(${target_name} PUBLIC -DNOGDI)
 endif()
 
 #===========================================================

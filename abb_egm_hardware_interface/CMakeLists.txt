@@ -20,11 +20,6 @@ else()
   set(extracted_version ${CMAKE_MATCH_1})
 endif()
 
-## Restrict Windows header namespace usage
-if(WIN32)
-  add_definitions(-DNOGDI)
-endif()
-
 ########################################################################################################################
 # CMake project
 ########################################################################################################################
@@ -126,7 +121,7 @@ target_compile_features(${target_name} PRIVATE cxx_std_14)
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   target_compile_options(${target_name} PRIVATE -Wall -Wextra -Wpedantic)
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-  target_compile_options(${target_name} PRIVATE /W4)
+  target_compile_options(${target_name} PRIVATE /W4 -DNOGDI)
 endif()
 
 #-----------------------------

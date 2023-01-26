@@ -28,7 +28,7 @@ jobs:
       CCACHE_DIR: "/home/runner/work/abb_robot_driver/abb_robot_driver/focal/.ccache"
       UPSTREAM_WORKSPACE: 'pkgs.repos -abb_robot_driver'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Prepare ccache timestamp
         id: ccache_cache_timestamp
@@ -38,7 +38,7 @@ jobs:
           message("::set-output name=timestamp::${current_date}")
 
       - name: ccache cache files
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ env.OS_CODE_NAME }}/.ccache
           key: ${{ env.OS_CODE_NAME }}-ccache-${{ steps.ccache_cache_timestamp.outputs.timestamp }}

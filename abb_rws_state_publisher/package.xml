@@ -7,7 +7,7 @@
     Provides a ROS node implementation that periodically publishes ROS messages, containing an
     ABB robot controller's current state collected via Robot Web Services (RWS) communication.
   </description>
-  <maintainer email="jon.tjerngren@se.abb.com">Jon Tjerngren</maintainer>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
   <license>BSD-3-Clause</license>
   <author>Jon Tjerngren</author>
 

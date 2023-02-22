@@ -6,7 +6,7 @@
   <description>
     Provides some basic examples of how the ABB robot controller driver's components can be launched in ROS.
   </description>
-  <maintainer email="jon.tjerngren@se.abb.com">Jon Tjerngren</maintainer>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
   <license>BSD-3-Clause</license>
   <author>Jon Tjerngren</author>
 

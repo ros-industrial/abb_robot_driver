@@ -10,7 +10,7 @@
     A ROS node implementation is also provided for starting a ros_control controller manager, which drives a single
     instance of the EGM hardware interface toward an ABB robot controller.
   </description>
-  <maintainer email="jon.tjerngren@se.abb.com">Jon Tjerngren</maintainer>
+  <maintainer email="g.a.vanderhoorn@tudelft.nl">G.A. vd. Hoorn (TU Delft Robotics Institute)</maintainer>
   <license>BSD-3-Clause</license>
   <author>Jon Tjerngren</author>
 

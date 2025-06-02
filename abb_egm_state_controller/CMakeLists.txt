@@ -105,6 +105,11 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
   target_compile_options(${target_name} PRIVATE /W4)
 endif()
 
+## Restrict Windows header namespace usage
+if (WIN32)
+  target_compile_definitions(${target_name} PUBLIC -DNOGDI)
+endif()
+
 #===========================================================
 # Install
 #===========================================================
